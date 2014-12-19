@@ -1,3 +1,10 @@
+/**
+ * jquery.placeholder-polyfill
+ * 
+ * Copyright (c) 2014 Erik Montes
+ * Licensed under MIT license
+ */
+
 (function ($) {
 
     $.fn.placeholder = function (options) {
