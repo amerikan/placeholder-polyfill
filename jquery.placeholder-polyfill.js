@@ -19,10 +19,10 @@
         return this.each(function() {
             
             var $inputField = $(this);
+            var placeholderText = $inputField.attr('placeholder');
             var $label = $('<label />').text(placeholderText).css({'position':'absolute', 'color':'#aaa', 'font-family':'sans-serif'});
             var $wrapper = $('<div />').addClass(settings.customClassName).css({'display':'inline-block', 'position':'relative'});
-            var placeholderText = $inputField.attr('data-placeholder');
-
+            
             $inputField.wrap($wrapper);
             $inputField.before($label);
 
