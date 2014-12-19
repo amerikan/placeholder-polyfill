@@ -39,17 +39,24 @@
             
             var $inputField = $(this);
             var placeholderText = $inputField.attr('placeholder');
-            var $label = $('<label />').text(placeholderText).css({'position':'absolute', 'color':'#aaa', 'font-family':'sans-serif'});
-            var $wrapper = $('<div />').addClass(settings.customClassName).css({'display':'inline-block', 'position':'relative'});
-            
-            $inputField.wrap($wrapper);
-            $inputField.before($label);
 
-            $label.bind('click', function () {
-                $inputField.focus();
-            });
+            // Check only for fields that actually have placeholders set
+            if (placeholderText) {
+                // Generate some necessary elements
+                var $label = $('<label />').text(placeholderText).css({'position':'absolute', 'color':'#aaa', 'font-family':'sans-serif'});
+                var $wrapper = $('<div />').addClass(settings.customClassName).css({'display':'inline-block', 'position':'relative'});
+                
+                $inputField.wrap($wrapper);
+                $inputField.before($label);
 
-            $inputField.bind('keyup', checkInput);
+                $label.bind('click', function () {
+                    $inputField.focus();
+                });
+
+                $inputField.bind('keyup', checkInput);
+
+                checkInput();
+            }
 
             function checkInput() {
                 if ($inputField.val() === '') {
@@ -58,8 +65,6 @@
                     $label.hide();
                 }
             }
-
-            checkInput();
         });
 
     };
