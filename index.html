@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.2.min.js"></script>
+        <script type="text/javascript" src="jquery.placeholder-polyfill.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('input, textarea').placeholder({customClassName: 'my-placeholder'}).css('color','red');
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="tel" data-placeholder="telephone" />
+            <input type="text" data-placeholder="username" />
+            <input type="password" data-placeholder="password" />
+            <textarea data-placeholder="about me"></textarea>
+        </form>
+    </body>
+</html>
