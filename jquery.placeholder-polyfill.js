@@ -7,16 +7,35 @@
 
 (function ($) {
 
+    var isInputSupported = 'placeholder' in document.createElement('input');
+    var isTextareaSupported = 'placeholder' in document.createElement('textarea');
+
     $.fn.placeholder = function (options) {
 
-         // default settings:
+        // default settings:
         var defaults = {
             customClassName: 'placeholder'
         };
 
         var settings = $.extend({}, defaults, options);
+        var pollyfillableElements = [];
+        
+        if (isInputSupported && isTextareaSupported) {
+            // Browser supports both input and textarea placeholder natively
+            return this; 
+        }
 
-        return this.each(function() {
+        if (!isInputSupported) {
+            // Browser doesn't natively support <input> placeholders
+            pollyfillableElements.push('input');
+        }
+
+        if (!isTextareaSupported) {
+            // Browser doesn't natively support <textarea> placeholders
+            pollyfillableElements.push('textarea');
+        }
+
+        return this.filter(pollyfillableElements.join(',')).each(function() {
             
             var $inputField = $(this);
             var placeholderText = $inputField.attr('placeholder');
