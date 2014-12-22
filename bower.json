@@ -1,0 +1,22 @@
+{
+	"name": "jquery-placeholder-polyfill",
+	"description": "A small jQuery plugin to show placeholders on HTML inputs and textareas in browsers that don't support the placeholder attribute natively.",
+	"version": "0.0.1",
+	"license": "MIT",
+	"main": ["jquery.placeholder-polyfill.js"],
+	"keywords": [
+		"form",
+		"placeholder",
+		"jQuery",
+		"jquery-plugin",
+		"polyfill"
+	],
+	"dependencies": {
+		"jquery": ">=1.0"
+	},
+	"ignore": [
+		"*",
+		"!/bower.json",
+		"!/jquery.placeholder-polyfill.js"
+	]
+}
