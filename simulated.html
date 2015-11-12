@@ -20,7 +20,7 @@
                     }
                 }
 
-                $('input, textarea').placeholder({customClassName: 'my-placeholder'}).css('color','red');
+                $('input, textarea').placeholder({forceMode: true, customClassName: 'my-placeholder'}).css('color','red');
             });
         </script>
     </head>
@@ -32,10 +32,10 @@
             <input type="password" />
 
             <p>Elements wih placeholders</p>
-            <input type="tel" placeholder="telephone" />
-            <input type="text" placeholder="username" />
-            <input type="password" placeholder="password" />
-            <textarea placeholder="about me"></textarea>
+            <input type="tel" placeholder-x="telephone" />
+            <input type="text" placeholder-x="username" />
+            <input type="password" placeholder-x="password" />
+            <textarea placeholder-x="about me"></textarea>
 
             <input type="submit" value="Submit" />
         </form>
