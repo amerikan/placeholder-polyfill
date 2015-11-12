@@ -7,12 +7,7 @@
 
 (function ($) {
 
-    /* forceMode forces modern browsers to use this plugin too. However, in such
-     * case the attribute 'placeholder-x' must be used instead of 'placeholder'.
-     * This is great if you want to keep consistent behaviour or you just want to
-     * debug in a modern browser.
-     */
-    var forceMode = false;
+    
 
     var isInputSupported = 'placeholder' in document.createElement('input');
     var isTextareaSupported = 'placeholder' in document.createElement('textarea');
@@ -21,23 +16,29 @@
 
         // default settings:
         var defaults = {
-            customClassName: 'placeholder'
+            customClassName: 'placeholder',
+            /* forceMode forces modern browsers to use this plugin too. However, in such
+             * case the attribute 'placeholder-x' must be used instead of 'placeholder'.
+             * This is great if you want to keep consistent behaviour or you just want to
+             * debug in a modern browser.
+             */
+            forceMode: false
         };
 
         var settings = $.extend({}, defaults, options);
         var pollyfillableElements = [];
         
-        if (isInputSupported && isTextareaSupported && !forceMode) {
+        if (isInputSupported && isTextareaSupported && !settings.forceMode) {
             // Browser supports both input and textarea placeholder natively
             return this; 
         }
 
-        if (!isInputSupported || forceMode) {
+        if (!isInputSupported || settings.forceMode) {
             // Browser doesn't natively support <input> placeholders
             pollyfillableElements.push('input');
         }
 
-        if (!isTextareaSupported || forceMode) {
+        if (!isTextareaSupported || settings.forceMode) {
             // Browser doesn't natively support <textarea> placeholders
             pollyfillableElements.push('textarea');
         }
@@ -45,7 +46,7 @@
         return this.filter(pollyfillableElements.join(',')).each(function() {
             
             var $inputField = $(this);
-            var placeholderText = forceMode ? $inputField.attr('placeholder-x') : $inputField.attr('placeholder');
+            var placeholderText = settings.forceMode ? $inputField.attr('placeholder-x') : $inputField.attr('placeholder');
 
             // Check only for fields that actually have placeholders set
             if (placeholderText) {
