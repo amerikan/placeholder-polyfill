@@ -4,7 +4,9 @@ placeholder-polyfill
 A small jQuery plugin to show placeholders on HTML `<input>`'s and `<textarea>`'s in browsers that don't support the `placeholder` attribute natively.
 
 ## Demo
-[Live Demo](http://amerikan.github.io/placeholder-polyfill)
+[Live Demo](http://amerikan.github.io/placeholder-polyfill) - the plugin take effect in only browsers that don't support the placeholder attribute natively
+
+[Demo with forceMode option](http://amerikan.github.io/placeholder-polyfill/simulated.html) - the plugin will take effect in all browsers by force
 
 ## Requirements
 

@@ -5,21 +5,6 @@
         <script type="text/javascript" src="jquery.placeholder-polyfill.js"></script>
         <script type="text/javascript">
             $(function () {
-
-                var isInputSupported = 'placeholder' in document.createElement('input');
-                var isTextareaSupported = 'placeholder' in document.createElement('textarea');
-
-                if (isInputSupported && isTextareaSupported) {
-                    $('#message').show().text('Notice: Your browser natively supports both, <input> and <textarea> placeholders. This plugin will not take effect.');
-                } else {
-
-                    if (isInputSupported) {
-                        $('#message').show().text('Notice: Your browser only supports <input> placeholders natively. This plugin will not take effect in <input> elements.');
-                    } else  if (isTextareaSupported) {
-                        $('#message').show().text('Notice: Your browser only supports <textarea> placeholders natively. This plugin will not take effect in <textarea> elements.');
-                    }
-                }
-
                 $('input, textarea').placeholder({forceMode: true, customClassName: 'my-placeholder'}).css('color','red');
             });
         </script>
