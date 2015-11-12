@@ -7,8 +7,6 @@
 
 (function ($) {
 
-    
-
     var isInputSupported = 'placeholder' in document.createElement('input');
     var isTextareaSupported = 'placeholder' in document.createElement('textarea');
 
@@ -46,12 +44,14 @@
         return this.filter(pollyfillableElements.join(',')).each(function() {
             
             var $inputField = $(this);
+            var inputFontSizeStyle = $inputField.css('font-size');
             var placeholderText = settings.forceMode ? $inputField.attr('placeholder-x') : $inputField.attr('placeholder');
 
             // Check only for fields that actually have placeholders set
             if (placeholderText) {
                 // Generate some necessary elements
-                var $label = $('<label />').text(placeholderText).css({'position':'absolute', 'color':'#aaa', 'font-family':'sans-serif'});
+                var $label = $('<label />').text(placeholderText)
+                                           .css({'position':'absolute', 'color':'#aaa', 'font-size': inputFontSizeStyle, 'font-family':'sans-serif'});
                 var $wrapper = $('<div />').addClass(settings.customClassName).css({'display':'inline-block', 'position':'relative'});
                 
                 $inputField.wrap($wrapper);
